@@ -20,6 +20,9 @@ FocusList est une application de gestion de tâches moderne conçue pour vous ai
 
 ## Utilisation
 
+![Screenshot of the main page with light mode.](/maquette/1.PNG)
+![Screenshot of the main page with dark mode.](/maquette/2.PNG)
+
 1. **Ajouter une tâche**
 
 Cliquez sur le bouton "Ajouter une tâche" et remplissez le formulaire avec les détails de la tâche.
