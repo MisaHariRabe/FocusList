@@ -1,4 +1,5 @@
 # FocusList
+![Logo of the app.](/favicon.png)
 
 FocusList est une application de gestion de tâches moderne conçue pour vous aider à organiser et à suivre vos tâches de manière efficace. Avec des fonctionnalités telles que le tri des tâches, la recherche rapide, et la gestion des rappels, FocusList est l'outil idéal pour améliorer votre productivité.
 
