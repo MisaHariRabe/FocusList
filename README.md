@@ -66,8 +66,9 @@ git push origin ma-nouvelle-fonctionnalité
 Ouvrez une pull request sur GitHub pour discuter et intégrer vos modifications.
 
 ## License
-Ce projet est sous la licence MIT. Voir le fichier LICENSE pour plus d'informations.
+Ce projet est sous la licence MIT. Voir le fichier [LICENSE](/LICENSE.txt) pour plus d'informations.
 
 ## Auteurs
 RABEMANANJARA AINASON Misandratraharimbola Opportun - Développeur principal
+
 Si vous avez des questions ou des suggestions, n'hésitez pas à ouvrir une issue sur le dépôt GitHub.
