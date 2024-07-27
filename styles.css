@@ -177,6 +177,17 @@ th {
     border-bottom: 1px solid #444;
 }
 
+.state-button {
+    border: none;
+    background: none;
+    color: blue;
+    cursor: pointer;
+}
+
+.state-button:hover {
+    text-decoration: underline;
+}
+
 th {
     font-weight: bold;
 }
@@ -193,17 +204,6 @@ td {
     display: flex;
     gap: 10px;
     justify-content: flex-end;
-}
-
-.state-button {
-    border: none;
-    background: none;
-    color: blue;
-    cursor: pointer;
-}
-
-.state-button:hover {
-    text-decoration: underline;
 }
 
 .delete-button,
