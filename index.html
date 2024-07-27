@@ -1,65 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="FocusList - Application de gestion de tâches avec des fonctionnalités avancées telles que le tri, la recherche et les rappels.">
-    <meta name="author" content="RABEMANANJARA AINASON Misandratraharimbola Opportun">
-    <meta name="keywords"
-        content="gestion de tâches, liste de tâches, application de productivité, focuslist, task list, task manager">
-
-    <meta property="og:title" content="FocusList - Application de gestion de tâches">
-    <meta property="og:description"
-        content="Organisez vos tâches avec FocusList, l'application qui vous aide à rester productif.">
-    <meta property="og:image" content="maquette/2.png">
-    <meta property="og:url" content="https://misaharirabe.github.io/FocusList/">
-    <meta property="og:type" content="website">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="FocusList - Application de gestion de tâches">
-    <meta name="twitter:description"
-        content="Organisez vos tâches avec FocusList, l'application qui vous aide à rester productif.">
-    <meta name="twitter:image" content="maquette/2.png">
-
-    <meta name="google-site-verification" content="EqlWlf3ofXnZj3-uNwugTUEIIu_D5eU5jN4U0NPDFb8" />
-
-    <link rel="icon" href="icon.png" type="image/x-icon">
+    <title>FocusList - To-do List App</title>
     <link rel="stylesheet" href="styles.css">
-    <title>FocusList - Application de gestion de tâches</title>
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <meta name="description"
+        content="FocusList est une application de gestion de tâches où vous pouvez ajouter, modifier, supprimer des tâches et les organiser avec des détails tels que la date limite, la priorité et la description.">
+    <meta name="author" content="[Votre Nom]">
+    <meta property="og:title" content="FocusList - To-do List App">
+    <meta property="og:description"
+        content="FocusList est une application de gestion de tâches qui vous aide à rester organisé en vous permettant d'ajouter, modifier et gérer des tâches avec des dates limites, des niveaux de priorité et des descriptions.">
+    <meta property="og:image" content="[URL de l'image de prévisualisation]">
+    <meta property="og:url" content="[URL de votre site]">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FocusList - To-do List App">
+    <meta name="twitter:description"
+        content="FocusList vous aide à gérer vos tâches avec des fonctionnalités pour ajouter des dates limites, des priorités et des descriptions.">
+    <meta name="twitter:image" content="[URL de l'image de prévisualisation]">
+    <style>
+        /* Ajoutez ici les styles pour la réactivité et l'accessibilité si nécessaire */
+    </style>
 </head>
 
-
 <body class="light-mode">
-    <div class="theme-switcher">
-        <label for="themeToggle">Mode sombre :</label>
-        <input type="checkbox" id="themeToggle" class="theme__toggle">
+    <nav class="navbar">
+        <div class="theme-switcher">
+            <label for="theme" class="theme" aria-label="Changer le thème">
+                <span class="theme__toggle-wrap">
+                    <input id="theme" class="theme__toggle" type="checkbox" role="switch"
+                        aria-label="Activer le mode sombre">
+                    <span class="theme__fill"></span>
+                    <span class="theme__icon">
+                        <!-- Assurez-vous que les icônes sont visibles et accessibles -->
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                    </span>
+                </span>
+            </label>
+        </div>
+
+        <button type="button" id="showFormButton" aria-controls="taskForm" aria-expanded="false">Créer une
+            tâche</button>
+
+        <div class="sort-container">
+            <label for="sortOptions">Trier par:</label>
+            <select id="sortOptions" aria-label="Trier les tâches">
+                <option value="title">Titre</option>
+                <option value="state">État</option>
+                <option value="dueDate">Date de fin</option>
+                <option value="priority">Priorité</option>
+            </select>
+        </div>
+
+        <div class="filter-container">
+            <input type="text" id="filterInput" placeholder="Rechercher une tâche..."
+                aria-label="Rechercher des tâches">
+        </div>
+    </nav>
+
+    <div id="overlay" class="overlay" aria-hidden="true"></div>
+
+    <div class="task__adder__container">
+        <div id="taskForm" class="task-form" role="dialog" aria-labelledby="taskFormTitle" aria-hidden="true">
+            <h2 id="taskFormTitle">Ajouter une tâche</h2>
+            <input type="text" placeholder="Entrez votre tâche" id="taskInput" aria-label="Titre de la tâche">
+            <input type="date" id="dueDateInput" aria-label="Date de fin">
+            <label for="tagsInput">Tags:</label>
+            <input type="text" id="tagsInput" placeholder="Entrez des tags séparés par des virgules" aria-label="Tags">
+            <select id="priorityInput" aria-label="Priorité">
+                <option value="low">Faible</option>
+                <option value="medium">Moyenne</option>
+                <option value="high">Élevée</option>
+            </select>
+            <textarea id="descriptionInput" placeholder="Description" aria-label="Description"></textarea>
+            <button type="button" id="taskAdderButton">Ajouter la tâche</button>
+            <button type="button" id="hideFormButton">Annuler</button>
+        </div>
     </div>
 
     <div id="todoContainer">
-        <div class="task__adder__container">
-            <input type="text" id="taskInput" placeholder="Ajouter une tâche...">
-            <button id="taskAdderButton">Ajouter</button>
-            <div class="sort-container">
-                <label for="sortOptions">Trier par :</label>
-                <select id="sortOptions">
-                    <option value="title">Titre</option>
-                    <option value="state">État</option>
-                </select>
-            </div>
-        </div>
-
-        <table>
+        <table id="todoTable">
             <thead>
                 <tr>
                     <th>Titre</th>
                     <th>État</th>
+                    <th>Date de fin</th>
+                    <th>Priorité</th>
+                    <th>Description</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="todoBody">
-                <!-- Les tâches seront affichées ici -->
+                <!-- Les lignes des tâches seront ajoutées ici dynamiquement -->
             </tbody>
         </table>
     </div>
